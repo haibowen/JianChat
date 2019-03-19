@@ -1,5 +1,6 @@
 package com.example.wenhaibo.jishitongxin;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -69,6 +71,9 @@ public class ChatActivity extends AppCompatActivity {
                     mAdapter.notifyItemInserted(mList.size() - 1);
                     mRecyclerView.scrollToPosition(mList.size() - 1);
                     etInput.setText("");
+
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                 }
             }
         });
